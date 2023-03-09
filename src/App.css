@@ -1,0 +1,253 @@
+:root {
+  --top-text-color: #ffff00;
+  --top-back-color: #808080;
+  --button-text-color: #ffffff;
+  --button-back-color: #cc0000;
+  --left-text-color: #2f4f4f;
+  --left-back-color: #cecece;
+  --right-text-color: #000000;
+  --right-back-color: #ffffff;
+  --modal-button-back-color: #03f;
+  --modal-button-text-color: white;
+}
+
+body[data-theme='light-theme'] {
+  --top-text-color: #ffff00;
+  --top-back-color: #808080;
+  --button-text-color: #ffffff;
+  --button-back-color: #cc0000;
+  --left-text-color: #2f4f4f;
+  --left-back-color: #cecece;
+  --right-text-color: #000000;
+  --right-back-color: #ffffff;
+}
+
+body[data-theme='dark-theme'] {
+  --top-text-color: #2f4f4f;
+  --top-back-color: #c0c0c0;
+  --button-text-color: #800080;
+  --button-back-color: #f0f8ff;
+  --left-text-color: #696969;
+  --left-back-color: #ffffff;
+  --right-text-color: #ffffff;
+  --right-back-color: #008080;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  transition-duration: .5s;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  font-size: 1em;
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--button-text-color);
+  background-color: var(--button-back-color);
+  cursor: pointer;
+}
+
+.App {
+  padding: 0;
+  padding-top: 100px;
+  text-align: center;
+  height: 100%;
+}
+
+.topbar {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  display: flex;
+  padding: 10px 30px 10px 30px;
+  justify-content: left;
+  align-items: center;
+  background-color: var(--top-back-color);
+  color: var(--top-text-color);
+}
+
+.left-container {
+  left: 0;
+  height: 100%;
+  color: var(--left-text-color);
+  background-color: var(--left-back-color);
+  width: fit-content;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.sider-controller {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  transform: translateX(50%);
+  border: 1px solid red;
+}
+
+.content {
+  display: flex;
+  height: 100%;
+}
+
+.menu-item {
+  height: 40px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.menu-label {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.page1-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.split-view {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid whitesmoke;
+  padding: 20px;
+}
+
+.left {
+  color: var(--left-text-color);
+  background-color: var(--left-back-color);
+  justify-content: space-around;
+}
+
+.right {
+  color: var(--right-text-color);
+  background-color: var(--right-back-color);
+  justify-content: flex-start;
+  overflow-y: auto;
+  font-size: 1.5em;
+}
+
+.message-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+.text-plain {
+  border-radius: 5px;
+  width: 350px;
+  height: 400px;
+  padding: 20px;
+  font-size: 1.5em;
+  overflow-y: auto;
+  resize: none;
+}
+
+.page2-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.single-modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 500px;
+}
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px solid darkgray;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--left-back-color);
+  color: var(--left-text-color);
+  padding: 30px;
+}
+
+.single-button {
+  background-color: var(--modal-button-back-color);
+  color: var(--modal-button-text-color);
+}
+
+.button-group {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.button-group .cancel {
+  color: black;
+  background-color: transparent;
+}
+
+.button-group .remove {
+  color: black;
+  background-color: orange;
+}
+
+.button-group .delete {
+  color: white;
+  background-color: #cc0000;
+}
